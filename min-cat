@@ -1,0 +1,5 @@
+#!/bin/bash
+
+awk -F\, '{ gsub(/"/, "", $8); c[$4] += $8 } END { for (reason in c) { print c[reason], reason } }' \
+  | sort -nr \
+  | distribution

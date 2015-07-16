@@ -1,0 +1,4 @@
+#!/bin/bash
+
+awk -F\, '{ gsub(/\"/, "", $3); gsub(/.........$/, "", $3); c[$3]++  } END { for (mon in c) { print c[mon], mon } }' \
+  | distribution

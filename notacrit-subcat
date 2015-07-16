@@ -1,0 +1,6 @@
+#!/bin/bash
+
+awk -F\, '{ if ($(NF-1) != "\"Urgent\"") print $5 }' \
+  | sort \
+  | uniq -c \
+  | distribution
